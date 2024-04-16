@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import markdownItFootnote from "markdown-it-footnote";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,6 +7,12 @@ export default defineConfig({
   description: "The documentation for Discuit's API",
   lang: "en-US",
   cleanUrls: true,
+  head: [["link", { rel: "icon", href: "/favicon.png" }]],
+  markdown: {
+    config(md) {
+      md.use(markdownItFootnote);
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/favicon.png",
